@@ -11,7 +11,7 @@ function reversePrint(head) {
 }
 
 
-// Reverse linked list
+// Reverse a linked list
 function reverse(head) {
 
     var prev = head;
@@ -27,4 +27,22 @@ function reverse(head) {
 
     current.next = prev;
     return current;
+}
+
+// Reverse a doubly linked list
+function reverseDLL(head) {
+    var current = head;
+    var el = head;
+    
+    while (current) {
+        var temp = el.prev;
+        el.prev = el.next;
+        current = el.next;
+        el.next = temp;
+        if (current) {
+            el = current;
+        }
+    }
+    head = el;
+    return head;
 }
